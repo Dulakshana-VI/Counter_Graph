@@ -67,6 +67,8 @@ namespace stat50of36
             //MessageBox.Show("MAC Address: " + macAddress);
             //CustomBusyBox.BusyBox.ShowBusy();
             string key = "no key";
+            string day = "xp";
+            DateTime decryptDate = DateTime.Now;
             try
             {
                 key = ConfigurationManager.AppSettings["Dcode"];
@@ -79,7 +81,17 @@ namespace stat50of36
             }
             try
             {
-                //string test = "1062E5E00299,0250F2F5ACE0,005056C00001,005056C00008,00FFBEF89159,00FF7EF1B0B9,";
+                day = ConfigurationManager.AppSettings["xp"];
+                decryptDate = DateTime.Parse(AesOperation.DecryptString("b14ca5898a4e4133bbce2ea2315a1916", day));
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Failed to read expiry date");
+                this.Close();
+            }
+            try
+            {
+                //string test = "12/14/2023 11:59:00 PM";
                 //string encrypted = AesOperation.EncryptString("b14ca5898a4e4133bbce2ea2315a1916", test);
                 //MessageBox.Show(encrypted);
                 //MessageBox.Show(AesOperation.DecryptString("b14ca5898a4e4133bbce2ea2315a1916", encrypted));
@@ -87,9 +99,9 @@ namespace stat50of36
                 //"9EL4TGcAJOuCgRa+mDrDrBJoBYDDXh8+tH8qjn+JIvPhSvWB0qyemXjPeBAS0z9xjgqs8ZtUKwTHZMz3xg76nQfZp7UwDzIWSeg7Fo99UW4=";
 
                 //Decryptcode = AesOperation.DecryptString("b14ca5898a4e4133bbce2ea2315a1916", "9EL4TGcAJOuCgRa+mDrDrBJoBYDDXh8+tH8qjn+JIvPhSvWB0qyemXjPeBAS0z9xjgqs8ZtUKwTHZMz3xg76nQfZp7UwDzIWSeg7Fo99UW4=");
-
                 checkmac(Decryptcode);
-                
+
+
                 if (mac)
                 {
 
@@ -97,6 +109,15 @@ namespace stat50of36
                 else
                 {
                     MessageBox.Show("You have no right to use this software");
+                    this.Close();
+                }
+                if (decryptDate > DateTime.Now)
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("Your copy of the software is expired.");
                     this.Close();
                 }
             }
@@ -140,7 +161,7 @@ namespace stat50of36
                     {
                     }
                 }
-                
+
             }
         }
 
