@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Net.NetworkInformation;
+using System.Data;
 
 namespace stat50of36
 {
@@ -20,6 +21,8 @@ namespace stat50of36
         private Dictionary<int, int> dictionary;
         private bool mac = false;
         private string Decryptcode;
+        DataTable dt = new DataTable();
+
         private void fillChart(int y)
         {
             chart1.Series["datapoints"].Points.Clear();
@@ -63,6 +66,23 @@ namespace stat50of36
             dictionary = new Dictionary<int, int>(
                 Enumerable.Range(1, 36).ToDictionary(i => i, _ => 0)
                 );
+
+            dataGridView1.RowHeadersVisible = false;
+            dt.Columns.Add("Number");
+            dt.Columns.Add("Count");
+            dataGridView1.DataSource = dt;
+            dataGridView1.Columns[0].Width = 50;
+            dataGridView1.Columns[1].Width = 50;
+
+            foreach (KeyValuePair<int, int> entry in dictionary)
+            {
+                DataRow dr = dt.NewRow();
+                dr[0] = entry.Key;
+                dr[1] = 0;
+                dt.Rows.Add(dr);
+            }
+            
+
 
             //MessageBox.Show("MAC Address: " + macAddress);
             //CustomBusyBox.BusyBox.ShowBusy();
@@ -188,6 +208,8 @@ namespace stat50of36
                         data.Remove(data[0]);
                         data.Add(nextint);
                     }
+                    
+                        //= (int.Parse(dt.Rows[nextint - 1]["Count"].ToString()) + 1).ToString();
                 }
                 catch (Exception)
                 {
@@ -206,7 +228,20 @@ namespace stat50of36
                 label2.Text = listString;
 
                 fillChart(nextint);
-
+                try
+                {
+                    foreach (KeyValuePair<int, int> entry in dictionary)
+                    {
+                        int countnextint = dictionary[entry.Key];
+                        double nextintpercentage = (countnextint) * 100 / data.Count;
+                        dt.Rows[entry.Key - 1]["Count"] = nextintpercentage.ToString() + "%";
+                    }
+                    
+                }
+                catch (Exception)
+                {
+                    
+                }
                 textBox1.Clear();
                 nextint = 0;
             }

@@ -30,3 +30,15 @@ E:\testProjects\stat50of36\VS_sln\stat50of36\obj\Debug\stat50of36.exe
 E:\testProjects\stat50of36\VS_sln\stat50of36\obj\Debug\stat50of36.pdb
 E:\testProjects\stat50of36\VS_sln\stat50of36\bin\Debug\CustomBusyBox.dll
 E:\testProjects\stat50of36\VS_sln\stat50of36\obj\Debug\stat50of36.csproj.CopyComplete
+C:\Users\HP\Desktop\counter\stat50of36\bin\Debug\stat50of36.exe.config
+C:\Users\HP\Desktop\counter\stat50of36\bin\Debug\stat50of36.exe
+C:\Users\HP\Desktop\counter\stat50of36\bin\Debug\stat50of36.pdb
+C:\Users\HP\Desktop\counter\stat50of36\bin\Debug\CustomBusyBox.dll
+C:\Users\HP\Desktop\counter\stat50of36\obj\Debug\stat50of36.csprojAssemblyReference.cache
+C:\Users\HP\Desktop\counter\stat50of36\obj\Debug\stat50of36.Form1.resources
+C:\Users\HP\Desktop\counter\stat50of36\obj\Debug\stat50of36.Properties.Resources.resources
+C:\Users\HP\Desktop\counter\stat50of36\obj\Debug\stat50of36.csproj.GenerateResource.cache
+C:\Users\HP\Desktop\counter\stat50of36\obj\Debug\stat50of36.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\counter\stat50of36\obj\Debug\stat50of36.csproj.CopyComplete
+C:\Users\HP\Desktop\counter\stat50of36\obj\Debug\stat50of36.exe
+C:\Users\HP\Desktop\counter\stat50of36\obj\Debug\stat50of36.pdb
